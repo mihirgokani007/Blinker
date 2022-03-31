@@ -8,20 +8,21 @@
 #endif
 
 class Blinker {
-	private:
+private:
         int _blinkPin;
         uint32_t _highDelay;
         uint32_t _lowDelay;
         uint32_t _lastBlink;
         boolean _blinkState;
         boolean _running;
+	double _duration;
 
-	public:
-		Blinker(int pin);
-		void setDelay(uint32_t d);
-		void setDelay(uint32_t h, uint32_t l);
+public:
+	Blinker(int pin);
+	void setDelay(uint32_t d);
+	void setDelay(uint32_t h, uint32_t l);
         void blink();
-        void start();
+        void start(double duration = INFINITY);
         void stop(bool idleState = LOW);
 };
 
